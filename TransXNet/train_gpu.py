@@ -49,7 +49,7 @@ from estimate_model import Predictor, Plot_ROC
 def get_args_parser():
     parser = argparse.ArgumentParser(
         'TransXNet training and evaluation script', add_help=False)
-    parser.add_argument('--batch-size', default=8, type=int)
+    parser.add_argument('--batch-size', default=32, type=int)
     parser.add_argument('--epochs', default=300, type=int)
 
     # Model parameters
@@ -167,10 +167,10 @@ def get_args_parser():
                         help='set BN layers to eval mode during finetuning.')
 
     # Dataset parameters
-    parser.add_argument('--data_root', default='/flower_data', type=str,
+    parser.add_argument('--data_root', default='/我的数据集', type=str,
                         help='dataset path')
-    parser.add_argument('--nb_classes', default=5, type=int,
-                        help='number classes of your dataset')
+    parser.add_argument('--nb_classes', default=3, type=int,
+                        help='number classes of your dataset') # 本论文有3个分类，分为：上涨，下跌，中性
     parser.add_argument('--data-set', default='IMNET', choices=['CIFAR', 'IMNET', 'INAT', 'INAT19'],
                         type=str, help='Image Net dataset path')
     parser.add_argument('--inat-category', default='name',
